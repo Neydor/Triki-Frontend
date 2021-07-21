@@ -4,7 +4,7 @@ import Game from "./components/Game";
 //import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 
 const urlBackend =
-  "https://kt3kt2kzi7.execute-api.us-west-1.amazonaws.com/dev/turnoo";
+  "https://kt3kt2kzi7.execute-api.us-west-1.amazonaws.com/dev/users";
 
 const winningPositions = [
   [0, 1, 2],
@@ -39,15 +39,14 @@ const App = () => {
     const requestOptions = {
       method: "POST",
       headers: {
-        Accept: "application/json",
-        "X-Api-Key": "pepe",
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
+        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: info,
-      // mode: "no-cors",
+      body: JSON.stringify(info),
+      mode: "cors",
     };
-    fetch(urlTurno, requestOptions)
+    let response = fetch(urlTurno, requestOptions);
+    response
       .then((res) => res.json())
       .then(
         (response) => {
