@@ -4,7 +4,7 @@ import Game from "./components/Game";
 //import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 
 const urlBackend =
-  "https://hlqg91qsbi.execute-api.us-east-2.amazonaws.com/dev/";
+  "https://kt3kt2kzi7.execute-api.us-west-1.amazonaws.com/dev/turnoo";
 
 const winningPositions = [
   [0, 1, 2],
@@ -35,10 +35,15 @@ const App = () => {
   const checkForWinner = (newCells) => {
     const listaprueba = ["X", "X", "X", "X", "X", "X", "X", "X", "X"];
     const info = { newCells: listaprueba, turn: turn };
-    const urlTurno = urlBackend + "turn";
+    const urlTurno = urlBackend;
     const requestOptions = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        Accept: "application/json",
+        "X-Api-Key": "pepe",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
       body: info,
       // mode: "no-cors",
     };
