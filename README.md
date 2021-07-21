@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Triki-frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is the continuation of https://github.com/Neydor/triki-backend triki-backend. Do it first! https://github.com/Neydor/triki-backend
+
+## Install and config
+
+After clone, execute ### `npm install` for install all dependencies and libraries. Go to `src/App.js` and modify `const urlBackend` to AWS API GATEWAY endpoints ( in this repository explain wich URL to copy... =====> https://github.com/Neydor/triki-backend).
 
 ## Available Scripts
 
