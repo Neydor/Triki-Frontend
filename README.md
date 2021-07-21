@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Triki-frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is the continuation of https://github.com/Neydor/triki-backend triki-backend. Do it first! https://github.com/Neydor/triki-backend
+
+## Install and config
+
+After clone, execute ### `npm install` for install all dependencies and libraries. Go to `src/App.js` and modify `const urlBackend` to AWS API GATEWAY endpoint https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/ for example.
+
+NOTE: After deploy "triki-backend", you can to copy the URL.
+Example:
+  ![image](https://user-images.githubusercontent.com/17129958/126558806-d4bab587-d97d-4dd7-8f86-c7d3ab5f0e22.png)
+
+## WAIT
+
+Install in yout browser a extension named Allow CORS: Access-Control-Allow-Origin . 
+EDGE ======> https://microsoftedge.microsoft.com/addons/detail/allow-cors-accesscontro/bhjepjpgngghppolkjdhckmnfphffdag
+Chrome ====> https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+Mozilla ===> https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
 
 ## Available Scripts
 
