@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import Game from "./components/Game";
 //import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
-
+const axios = require("axios");
 const urlBackend =
-  "https://kt3kt2kzi7.execute-api.us-west-1.amazonaws.com/dev/users";
+  "https://kt3kt2kzi7.execute-api.us-west-1.amazonaws.com/dev/turnoo";
 
 const winningPositions = [
   [0, 1, 2],
@@ -45,7 +45,7 @@ const App = () => {
       body: JSON.stringify(info),
       mode: "cors",
     };
-    let response = fetch(urlTurno, requestOptions);
+    let response = axios.post(urlBackend, info);
     response
       .then((res) => res.json())
       .then(
