@@ -1,0 +1,20 @@
+.puntaje {
+  width: 320px;
+  display: grid;
+  grid-auto-flow: column;
+  margin-top: 5px;
+}
+
+.puntaje div {
+  color: #006df3;
+  text-align: center;
+  font-size: 2em;
+  padding: 5px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+.puntaje div:first-child {
+  background-color: transparent;
+  color: #cd493a;
+}
