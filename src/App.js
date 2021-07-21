@@ -2,6 +2,7 @@ import { Box } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { Modal } from "@material-ui/core";
+import { Hidden } from "@material-ui/core";
 import { Button } from "@material-ui/core";
 import React from "react";
 import { useState } from "react";
@@ -41,7 +42,14 @@ const App = () => {
   //Modal
 
   const [open, setOpen] = React.useState(true);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    resetGame();
+    setPlayers({
+      X: 0,
+      O: 0,
+    });
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
   const [nombrePlayer1, setNombrePlayer1] = useState("");
   const [nombrePlayer2, setNombrePlayer2] = useState("");
@@ -54,14 +62,7 @@ const App = () => {
   const handleChangeNombre2 = (e) => {
     setNombrePlayer2(e.target.value);
   };
-  const savePlayers = () => {
-    if (nombrePlayer1 !== "" && nombrePlayer2 !== "") {
-      localStorage.setItem("player1", JSON.stringify(nombrePlayer1));
-      localStorage.setItem("player2", JSON.stringify(nombrePlayer2));
-      console.log(players);
-      handleClose();
-    }
-  };
+
   //Logica
   const [turn, setTurn] = useState("X");
   const [cells, setCells] = useState(Array(9).fill(null));
@@ -70,6 +71,14 @@ const App = () => {
     X: 0,
     O: 0,
   });
+  const savePlayers = () => {
+    if (nombrePlayer1 !== "" && nombrePlayer2 !== "") {
+      localStorage.setItem("player1", JSON.stringify(nombrePlayer1));
+      localStorage.setItem("player2", JSON.stringify(nombrePlayer2));
+      console.log(players);
+      handleClose();
+    }
+  };
 
   const resetGame = () => {
     setTurn("X");
@@ -123,7 +132,9 @@ const App = () => {
         cells={cells}
         onClick={handleClick}
       />
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button variant="contained" color="secondary" onClick={handleOpen}>
+        Salir
+      </Button>
       <Modal
         open={open}
         aria-labelledby="modal-modal-title"
