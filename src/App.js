@@ -32,9 +32,8 @@ const App = () => {
     setWinningCells([]);
   };
 
-  const checkForWinner = (newCells) => {
-    const listaprueba = ["X", "X", "X", "X", "X", "X", "X", "X", "X"];
-    const info = { newCells: listaprueba, turn: turn };
+  const checkForWinner = async (newCells) => {
+    const info = { newCells: newCells, turn: turn };
     const urlTurno = urlBackend;
     const requestOptions = {
       method: "POST",
@@ -43,29 +42,20 @@ const App = () => {
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(info),
-      mode: "cors",
     };
-    let response = axios.post(urlBackend, info);
-    response
-      .then((res) => res.json())
-      .then(
-        (response) => {
-          console.log(response);
-          if (!response.next) {
-            if (response.winner !== null) {
-              setScore({
-                ...score,
-                [response.winner]: score[response.winner] + 1,
-              });
-            }
-            setWinningCells(response.victoryMove);
-            setTimeout(resetGame, 3000);
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    let response = await axios.post(urlBackend, info);
+    var data = response.data.body;
+    console.log(data);
+    if (!data.next) {
+      if (data.winner !== null) {
+        setScore({
+          ...score,
+          [data.winner]: score[data.winner] + 1,
+        });
+      }
+      setWinningCells(data.victoryMove);
+      setTimeout(resetGame, 3000);
+    }
 
     setTurn(turn === "X" ? "O" : "X");
   };
