@@ -3,7 +3,8 @@ import "./App.css";
 import Game from "./components/Game";
 //import ScoreBoard from "./components/ScoreBoard/ScoreBoard";
 
-const urlBackend = "https://tox2z54n8c.execute-api.us-east-1.amazonaws.com/dev";
+const urlBackend =
+  "https://hlqg91qsbi.execute-api.us-east-2.amazonaws.com/dev/";
 
 const winningPositions = [
   [0, 1, 2],
@@ -34,7 +35,7 @@ const App = () => {
   const checkForWinner = (newCells) => {
     const listaprueba = ["X", "X", "X", "X", "X", "X", "X", "X", "X"];
     const info = { newCells: listaprueba, turn: turn };
-    const urlTurno = urlBackend + "/turn";
+    const urlTurno = urlBackend + "turn";
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
